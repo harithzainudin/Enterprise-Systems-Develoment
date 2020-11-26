@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Student</title>
+</head>
+<body>
+
+<h2>Insert student information</h2>
+	
+	<form action="AddStudent" onsubmit="return validate()" method="get">
+		<label for="id">ID:</label> <br>
+		<input type="text" id="id" name="id"><br>
+		
+		<label for="name">Name:</label><br>
+		<input type="text" id="name" name="name"> <br>
+
+		<label for="dept">Department:</label><br>
+		<input type="text" id="dept" name="dept"> <br>
+		
+		<label for="science">Science:</label><br>
+		<input type="number" id="science" name="science"> <br>
+		<p id="scienceValidation"> </p>
+		
+		<label for="math">Mathematics:</label><br>
+		<input type="number" id="math" name="math"> <br>
+		<p id="mathValidation"> </p>
+		
+		<label for="english">English:</label><br>
+		<input type="number" id="english" name="english"> <br>
+		<p id="englishValidation"> </p>
+		
+		<input type="submit" value="Submit">
+		<p id="okText"> </p>
+		
+		<script>
+			function validate() {
+				var science, math, english, scienceText, mathText, englishText, okText;
+				
+				// get value of input field
+				science = document.getElementById("science").value;
+				math = document.getElementById("math").value;
+				english = document.getElementById("english").value;
+				
+				// check and validate
+				if (isNaN(science) || science < 1 || science > 100) {
+					alert("Science input is not valid. Input only numbers between 1 to 100 only");
+					return false;
+				} else if (isNaN(math) || math < 1 || math > 100) {
+					alert("Mathematics input is not valid. Input only numbers between 1 to 100 only");
+					return false;
+				} else if (isNaN(english) || english < 1 || english > 100) {
+					alert("English input is not valid. Input only numbers between 1 to 100 only");
+					return false;
+				} else {
+					okText = "Input OK"
+				}
+			}
+		</script>
+				
+			
+	</form>
+
+</body>
+</html>
