@@ -1,6 +1,6 @@
 ORA ORA GROUP
 
-Architecture - Iman Baharuddin
+Architecture - Iman Baharuddin  
 10. Add some animation to the website
 
 Analysis - Harith Zainudin (MY PART)
