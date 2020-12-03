@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ArithmeticTestService WSDL service -->
+
+  <service name="ArithmeticTest" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://test"/>
+      <parameter name="wsdlServiceElement" value="ArithmeticTestService"/>
+      <parameter name="schemaQualified" value="http://test"/>
+      <parameter name="wsdlServicePort" value="ArithmeticTest"/>
+      <parameter name="className" value="test.ArithmeticTest"/>
+      <parameter name="wsdlPortType" value="ArithmeticTest"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://test" xmlns:retNS="http://test" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addValues" qname="operNS:addValues" returnQName="retNS:addValuesReturn" returnType="rtns:float" soapAction="">
+        <parameter xmlns:pns="http://test" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:a" type="tns:float"/>
+        <parameter xmlns:pns="http://test" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:b" type="tns:float"/>
+      </operation>
+      <operation xmlns:operNS="http://test" xmlns:retNS="http://test" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="subtractValues" qname="operNS:subtractValues" returnQName="retNS:subtractValuesReturn" returnType="rtns:float" soapAction="">
+        <parameter xmlns:pns="http://test" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:a" type="tns:float"/>
+        <parameter xmlns:pns="http://test" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:b" type="tns:float"/>
+      </operation>
+      <parameter name="allowedMethods" value="subtractValues addValues"/>
+
+  </service>
+</deployment>

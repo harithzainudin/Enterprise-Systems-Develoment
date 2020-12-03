@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://test" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://test" xmlns:intf="http://test" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://test" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addValues">
+    <complexType>
+     <sequence>
+      <element name="a" type="xsd:float"/>
+      <element name="b" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addValuesResponse">
+    <complexType>
+     <sequence>
+      <element name="addValuesReturn" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subtractValues">
+    <complexType>
+     <sequence>
+      <element name="a" type="xsd:float"/>
+      <element name="b" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="subtractValuesResponse">
+    <complexType>
+     <sequence>
+      <element name="subtractValuesReturn" type="xsd:float"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="subtractValuesRequest">
+
+      <wsdl:part element="impl:subtractValues" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addValuesResponse">
+
+      <wsdl:part element="impl:addValuesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addValuesRequest">
+
+      <wsdl:part element="impl:addValues" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="subtractValuesResponse">
+
+      <wsdl:part element="impl:subtractValuesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ArithmeticTest">
+
+      <wsdl:operation name="addValues">
+
+         <wsdl:input message="impl:addValuesRequest" name="addValuesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addValuesResponse" name="addValuesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subtractValues">
+
+         <wsdl:input message="impl:subtractValuesRequest" name="subtractValuesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:subtractValuesResponse" name="subtractValuesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ArithmeticTestSoapBinding" type="impl:ArithmeticTest">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addValues">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addValuesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addValuesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="subtractValues">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="subtractValuesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="subtractValuesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ArithmeticTestService">
+
+      <wsdl:port binding="impl:ArithmeticTestSoapBinding" name="ArithmeticTest">
+
+         <wsdlsoap:address location="http://localhost:8080/WebServiceExample/services/ArithmeticTest"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
